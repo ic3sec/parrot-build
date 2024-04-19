@@ -1,0 +1,6 @@
+---
+- name: "Customizing Parrot"
+  hosts: localhost
+  roles:
+    - role: "roles/configure-tmux"
+    - role: "roles/configure-terminal"

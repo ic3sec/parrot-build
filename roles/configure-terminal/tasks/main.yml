@@ -1,0 +1,26 @@
+---
+- name: "Copy BashRC"
+  copy:
+    src: "{{ role_path }}/files/.bashrc"
+    dest: "{{ ansible_env.HOME }}/"
+
+- name: "Read mate terminal profiles"
+  dconf:
+    key: "/org/mate/terminal/global/profile-list"
+    state: "read"
+  register: "profile_list"
+
+- name: "Add custom profile"
+  set_fact:
+    new_profile_list: "{{ profile_list.value | regex_replace(\"]$\", \", 'ice']\")}}"
+
+- name: "Write updated terminal profile list"
+  dconf:
+    key: "/org/mate/terminal/global/profile-list"
+    value: "{{ new_profile_list }}"
+  when: "'ice' not in profile_list.value"
+
+- name: "Restore profile from dump"
+  shell:
+    cmd: "dconf load /org/mate/terminal/profiles/ice/ < {{ role_path }}/files/ice-profile-dump"
+  when: "'ice' not in profile_list.value"
