@@ -4,3 +4,4 @@
   roles:
     - role: "roles/configure-tmux"
     - role: "roles/configure-terminal"
+    - role: "roles/install-tools"

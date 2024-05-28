@@ -10,6 +10,12 @@
     state: "read"
   register: "profile_list"
 
+- name: "Mate terminal profile list empty, setting to default"
+  set_fact:
+    profile_list:
+      value: "['default']"
+  when: "profile_list.value is none"
+
 - name: "Add custom profile"
   set_fact:
     new_profile_list: "{{ profile_list.value | regex_replace(\"]$\", \", 'ice']\")}}"
