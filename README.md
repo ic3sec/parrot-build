@@ -4,6 +4,7 @@ ParrotOS HTB Ansible Build Files
 # Instructions
 - Start with Parrot HTB Edition (https://www.parrotsec.org/download/)
 - Install pipx (apt-get install pipx)
+- Install ansible (apt-get install ansible)
 - Clone repo (git clone)
 - Run Ansible requirement instalation (ansible-galaxy install -r requirements.yml)
 - Ensure session has a sudo token
