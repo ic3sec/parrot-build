@@ -1,0 +1,11 @@
+---
+- name: Install packages
+  package:
+    name:
+      - curl
+      - exiftool
+      - pipx
+      - freerdp2-x11
+    state: present
+  become: true
+  become_method: sudo
