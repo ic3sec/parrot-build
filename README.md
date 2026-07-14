@@ -11,6 +11,9 @@ ParrotOS HTB Ansible Build Files
 - Run Ansible playbook (ansible-playbook main.yml -K)
   - Run with --tags "[tags]" or --skip-tags "[tags]" to run specific roles
 
+# VMWare Parrot Notes
+- If having issues with keyboard lag, add `keyboard.vusb.enable = "TRUE"` to your VM's .vmx file
+
 # Changelog
 ## 04.19.2024
 - Parrot Build repo created
